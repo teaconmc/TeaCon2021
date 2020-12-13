@@ -1,6 +1,6 @@
 name: Repository Dispatch
 
-on: 
+on:
   repository_dispatch:
     types: [build_callback]
 
@@ -9,8 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Receive Build Callback
+      - name: Drink Longjing Tea
         run: |
           echo Build Callback:
           echo '  Target:' ${{ github.event.client_payload.target }}
           echo '  Source:' ${{ github.event.client_payload.source }}
+
