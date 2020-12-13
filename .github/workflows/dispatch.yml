@@ -1,0 +1,13 @@
+name: Repository Dispatch
+
+on: [repository_dispatch]
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hello World
+        run: |
+          echo Hello World!
+          echo Client Payload: ${{ github.event.client_payload }}
