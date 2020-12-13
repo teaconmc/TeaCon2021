@@ -1,13 +1,16 @@
 name: Repository Dispatch
 
-on: [repository_dispatch]
+on: 
+  repository_dispatch:
+    types: [build_callback]
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Hello World
+      - name: Receive Build Callback
         run: |
-          echo Hello World!
-          echo Client Payload: ${{ github.event.client_payload }}
+          echo Build Callback:
+          echo '  Target:' ${{ github.event.client_payload.target }}
+          echo '  Source:' ${{ github.event.client_payload.source }}
